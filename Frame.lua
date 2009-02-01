@@ -1,4 +1,3 @@
---[[ $Id$ ]]
 
 local L = AceLibrary("AceLocale-2.2"):new("Visor2GUI")
 local alpha = 1
@@ -320,3 +319,4 @@ confirmCancel:SetHeight(22)
 confirmCancel:SetPoint("BOTTOMRIGHT", -25, 15)
 confirmCancel:SetText(L["Cancel"])
 confirmCancel:SetScript("OnClick", function() confirm:Hide() end)
+

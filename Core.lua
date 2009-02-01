@@ -1,13 +1,11 @@
---[[ $Id$ ]]
 
 Visor2GUI = Visor2:NewModule("GUI", "AceConsole-2.0", "AceDB-2.0")
-Visor2GUI.date = ("$Date$"):match("%d%d%d%d%-%d%d%-%d%d")
 
 Visor2GUI:RegisterDB("Visor2GUIDB")
 Visor2GUI:RegisterDefaults('account', { nudgeAmount = 20 })
 
 
-local L = AceLibrary("AceLocale-2.2"):new("Visor2GUI")
+local L = AceLibrary("AceLocale-2.2"):new("Visor2_GUI")
 local function round(num, digits)
 	-- banker's rounding
 	local mantissa = 10^digits
@@ -366,3 +364,4 @@ function Visor2GUI:ButtonVirt()
 		vf:Show()
 	end
 end
+
