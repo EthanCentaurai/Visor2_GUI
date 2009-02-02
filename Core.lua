@@ -1,9 +1,5 @@
 
-Visor2GUI = Visor2:NewModule("GUI", "AceConsole-2.0", "AceDB-2.0")
-
-Visor2GUI:RegisterDB("Visor2GUIDB")
-Visor2GUI:RegisterDefaults('account', { nudgeAmount = 20 })
-
+Visor2GUI = Visor2:NewModule("GUI", "AceConsole-2.0")
 
 local L = AceLibrary("AceLocale-2.2"):new("Visor2_GUI")
 local function round(num, digits)
@@ -32,9 +28,6 @@ function Visor2GUI:OnEnable()
 			},
 		},
 	})
-
-	Visor2:Do("n="..self.db.account.nudgeAmount)
-	Visor2GUINudge:SetValue(self.db.account.nudgeAmount)
 end
 
 
@@ -255,8 +248,6 @@ function Visor2GUI:NudgeUpdate()
 	local n = this:GetValue()
 
 	Visor2GUINudgeText:SetText(L["Nudge Amount: "]..n)
-
-	self.db.account.nudgeAmount = n
 	Visor2:Do("n="..n)
 end
 
