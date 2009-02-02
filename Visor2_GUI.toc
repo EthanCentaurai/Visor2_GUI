@@ -1,4 +1,4 @@
-## Interface: 3000
+## Interface: 30000
 ## Title: Visor2 GUI
 ## Notes: GUI framework for the "Visor2" frame-modification AddOn
 ## Author: Ethan Centaurai
