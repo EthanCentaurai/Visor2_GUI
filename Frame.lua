@@ -1,5 +1,5 @@
 
-local L = AceLibrary("AceLocale-2.2"):new("Visor2GUI")
+local L = AceLibrary("AceLocale-2.2"):new("Visor2_GUI")
 local alpha = 1
 
 -- wee! complex gui frame creation is fun!
@@ -27,22 +27,21 @@ frame:SetScript("OnUpdate", function(this, elapsed)
 	this:SetAlpha(alpha)
 end)
 frame:SetBackdrop({
-	bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
-	edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-	insets = { left = 5, right = 5, top = 5, bottom = 5 },
-	tile = true, tileSize = 16, edgeSize = 16,
+	bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+	edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+	tile = true, tileSize = 32, edgeSize = 32,
+	insets = { left = 8, right = 8, top = 8, bottom = 8 },
 })
-frame:SetBackdropColor(0.09, 0.09, 0.19)
-frame:SetBackdropBorderColor(0.5, 0.5, 0.5)
+frame:SetBackdropColor(0, 0, 0, 1)
 
-local texture = frame:CreateTexture(nil, "ARTWORK")
-texture:SetWidth(300)
-texture:SetHeight(48)
-texture:SetPoint("TOP", 0, 15)
+local texture = frame:CreateTexture(nil, "OVERLAY")
 texture:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Header")
+texture:SetPoint("CENTER", frame, "TOP", 0, -20)
+texture:SetWidth(275)
+texture:SetHeight(70)
 
-local header = frame:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-header:SetPoint("TOP", 0, 7)
+local header = frame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+header:SetPoint("CENTER", frame, "TOP", 0, -7)
 header:SetText(L["Visor2 GUI"])
 
 local editBox = CreateFrame("EditBox", "Visor2GUIEditBox", frame, "InputBoxTemplate")
@@ -70,6 +69,7 @@ grabParent:SetScript("OnClick", function() Visor2:SetupFrame("f="..Visor2GUI.par
 
 -- sliders
 local scaleSlider = CreateFrame("Slider", "Visor2GUIScale", frame, "OptionsSliderTemplate")
+Visor2GUIScaleText:SetText("Frame Scale")
 scaleSlider:SetWidth(120)
 scaleSlider:SetHeight(16)
 scaleSlider:SetPoint("TOP", 90, -110)
@@ -81,6 +81,7 @@ scaleSlider:SetScript("OnLeave", function() GameTooltip:Hide() end)
 scaleSlider:SetScript("OnValueChanged", function() Visor2GUI:ScaleUpdate() end)
 
 local alphaSlider = CreateFrame("Slider", "Visor2GUIAlpha", frame, "OptionsSliderTemplate")
+Visor2GUIAlphaText:SetText("Frame Alpha")
 alphaSlider:SetWidth(120)
 alphaSlider:SetHeight(16)
 alphaSlider:SetPoint("TOP", scaleSlider, "BOTTOM", 0, -30)
@@ -93,11 +94,13 @@ alphaSlider:SetScript("OnValueChanged", function() Visor2GUI:AlphaUpdate() end)
 
 -- nudger stuff
 local nudgeSlider = CreateFrame("Slider", "Visor2GUINudge", frame, "OptionsSliderTemplate")
+Visor2GUINudgeText:SetText("Nudge Amount")
 nudgeSlider:SetWidth(120)
 nudgeSlider:SetHeight(16)
-nudgeSlider:SetPoint("BOTTOM", -85, 60)
-nudgeSlider:SetMinMaxValues(1, 80)
+nudgeSlider:SetPoint("BOTTOM", -95, 90)
+nudgeSlider:SetMinMaxValues(1, 50)
 nudgeSlider:SetValueStep(1)
+nudgeSlider:SetValue(20)
 nudgeSlider:SetScript("OnMouseUp", function() Visor2GUI:NudgeUpdate() end)
 
 local nudgeLeft = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
@@ -204,7 +207,7 @@ editHUp:SetScript("OnClick", function() Visor2GUI:ButtonHUp() end)
 local editX = CreateFrame("EditBox", "Visor2GUIEditX", frame, "InputBoxTemplate")
 editX:SetWidth(40)
 editX:SetHeight(20)
-editX:SetPoint("BOTTOM", 120, 150)
+editX:SetPoint("BOTTOM", 100, 150)
 editX:SetAutoFocus(false)
 editX:SetScript("OnEnter", function() Visor2GUI:ShowTooltip(L["Enter X co-ordinate (center point of frame)"]) end)
 editX:SetScript("OnLeave", function() GameTooltip:Hide() end)
