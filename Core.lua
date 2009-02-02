@@ -41,7 +41,7 @@ function Visor2GUI:VISOR_UPDATE(p)
 		if self.parent then Visor2GUIGrabParent:Enable()
 		else Visor2GUIGrabParent:Disable() end
 
-		Visor2GUITarget:SetText(L["Parent Frame: "].."|cffffffff"..(self.parent or L["None"]))
+		Visor2GUITarget:SetText(L["Parent Frame"]..": |cffffffff"..(self.parent or NONE))
 		Visor2GUIEditBox:SetText(self.f)
 
 		local s = p.s or _G[self.f]:GetScale()
@@ -140,14 +140,14 @@ end
 function Visor2GUI:ScaleUpdate()
 	local s = round(this:GetValue(), 2)
 
-	Visor2GUIScaleText:SetText(L["Frame Scale: "]..s)
+	Visor2GUIScaleText:SetText(L["Frame Scale"]..": "..s)
 	Visor2:Do("s="..s)
 end
 
 function Visor2GUI:AlphaUpdate()
 	local a = round(this:GetValue(), 2)
 
-	Visor2GUIAlphaText:SetText(L["Frame Alpha: "]..a)
+	Visor2GUIAlphaText:SetText(L["Frame Alpha"]..": "..a)
 	Visor2:Do("a="..a)
 end
 
@@ -180,7 +180,7 @@ end
 function Visor2GUI:NudgeUpdate()
 	local n = this:GetValue()
 
-	Visor2GUINudgeText:SetText(L["Nudge Amount: "]..n)
+	Visor2GUINudgeText:SetText(L["Nudge Amount"]..": "..n)
 	Visor2:Do("n="..n)
 end
 

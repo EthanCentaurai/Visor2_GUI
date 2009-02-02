@@ -69,7 +69,7 @@ grabParent:SetScript("OnClick", function() Visor2:SetupFrame("f="..Visor2GUI.par
 
 -- sliders
 local scaleSlider = CreateFrame("Slider", "Visor2GUIScale", frame, "OptionsSliderTemplate")
-Visor2GUIScaleText:SetText("Frame Scale")
+Visor2GUIScaleText:SetText(L["Frame Scale"])
 scaleSlider:SetWidth(120)
 scaleSlider:SetHeight(16)
 scaleSlider:SetPoint("TOP", 90, -110)
@@ -81,7 +81,7 @@ scaleSlider:SetScript("OnLeave", function() GameTooltip:Hide() end)
 scaleSlider:SetScript("OnValueChanged", function() Visor2GUI:ScaleUpdate() end)
 
 local alphaSlider = CreateFrame("Slider", "Visor2GUIAlpha", frame, "OptionsSliderTemplate")
-Visor2GUIAlphaText:SetText("Frame Alpha")
+Visor2GUIAlphaText:SetText(L["Frame Alpha"])
 alphaSlider:SetWidth(120)
 alphaSlider:SetHeight(16)
 alphaSlider:SetPoint("TOP", scaleSlider, "BOTTOM", 0, -30)
@@ -94,7 +94,7 @@ alphaSlider:SetScript("OnValueChanged", function() Visor2GUI:AlphaUpdate() end)
 
 -- nudger stuff
 local nudgeSlider = CreateFrame("Slider", "Visor2GUINudge", frame, "OptionsSliderTemplate")
-Visor2GUINudgeText:SetText("Nudge Amount")
+Visor2GUINudgeText:SetText(L["Nudge Amount"])
 nudgeSlider:SetWidth(120)
 nudgeSlider:SetHeight(16)
 nudgeSlider:SetPoint("BOTTOM", -95, 90)
@@ -297,7 +297,7 @@ confirm:SetScript("OnShow", function() confirmLabel:SetText(Visor2GUI.f) end)
 
 local confirmText2 = confirm:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 confirmText2:SetPoint("TOP", confirmLabel, "BOTTOM", 0, -30)
-confirmText2:SetText(L["You will need to reload for any changes to take effect"])
+confirmText2:SetText(L["You will need to Reload UI for any changes to take effect"])
 
 local confirmDel = CreateFrame("Button", nil, confirm, "GameMenuButtonTemplate")
 confirmDel:SetWidth(100)
