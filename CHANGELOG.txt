@@ -1,0 +1,14 @@
+Version 2.2
+- Update .toc for Patch 3.0.8.
+- Remove old SVN stuff.
+- Fixed file line endings.
+- Redesigned, and fixed many bugs with the GUI itself.
+- Removed SavedVariables.
+- Removed the buggy, useless Virtual Frame support.
+- Add safety checks to prevent "Frame [Unknown] is invalid" messages from Visor2.
+
+Version 2.1
+- Update .toc data.
+
+Version 2.0
+- Re-wrote VisorGUI for Visor-2.0.
