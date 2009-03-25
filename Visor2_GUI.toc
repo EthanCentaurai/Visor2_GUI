@@ -1,17 +1,13 @@
-## Interface: 30000
+﻿## Interface: 30100
 ## Title: Visor2 GUI
-## Notes: GUI framework for the "Visor2" frame-modification AddOn
+## Notes: GUI framework for the "Visor2" frame-modification AddOn (originally written by Tain, Rowne, Eraphine and Stylpe, the original authors of Visor and VisorGUI)
 ## Author: Ethan Centaurai
-## Version: @project-version@
+## Version: 2.2.1
+## RequiredDeps: Visor2
 ## LoadManagers: AddonLoader
 ## X-LoadOn-Slash: /vzg, /Visor2GUI
-## X-eMail: ethan.centaurai@live.co.uk
-## X-Category: Frame Modification
-## X-Credits: Tain, Rowne, Eraphine and Stylpe, the original authors of Visor and VisorGUI
-## RequiredDeps: Visor2
 
 Locale-enUS.lua
 
 Core.lua
 Frame.lua
-

@@ -1,4 +1,4 @@
-
+﻿
 AceLibrary("AceLocale-2.2"):new("Visor2_GUI"):RegisterTranslations("enUS", function() return {
 	["Visor2 GUI"] = true,
 	["Toggle GUI Frame"] = true,
@@ -46,4 +46,3 @@ AceLibrary("AceLocale-2.2"):new("Visor2_GUI"):RegisterTranslations("enUS", funct
 	["Enter Y co-ordinate (center point of frame)"] = true,
 	["Show a virtual copy of a hidden frame"] = true,
 } end)
-
