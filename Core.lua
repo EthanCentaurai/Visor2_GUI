@@ -1,4 +1,4 @@
-﻿
+
 Visor2GUI = Visor2:NewModule("GUI", "AceConsole-2.0")
 
 local L = AceLibrary("AceLocale-2.2"):new("Visor2_GUI")

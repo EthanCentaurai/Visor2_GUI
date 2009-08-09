@@ -1,4 +1,4 @@
-﻿
+
 local L = AceLibrary("AceLocale-2.2"):new("Visor2_GUI")
 local alpha = 1
 

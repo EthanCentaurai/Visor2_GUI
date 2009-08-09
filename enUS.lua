@@ -1,4 +1,4 @@
-﻿
+
 AceLibrary("AceLocale-2.2"):new("Visor2_GUI"):RegisterTranslations("enUS", function() return {
 	["Visor2 GUI"] = true,
 	["Toggle GUI Frame"] = true,
