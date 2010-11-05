@@ -299,7 +299,7 @@ local confirmText2 = confirm:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 confirmText2:SetPoint("TOP", confirmLabel, "BOTTOM", 0, -30)
 confirmText2:SetText(L["You will need to Reload UI for any changes to take effect"])
 
-local confirmDel = CreateFrame("Button", "Visor2GUIDelete", confirm, "GameMenuButtonTemplate")
+local confirmDel = CreateFrame("Button", "Visor2GUIConfirmDelete", confirm, "GameMenuButtonTemplate")
 confirmDel:SetWidth(100)
 confirmDel:SetHeight(22)
 confirmDel:SetPoint("BOTTOMLEFT", 25, 15)
