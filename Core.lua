@@ -15,28 +15,12 @@ local function round(num, digits)
 end
 
 
-function Visor2GUI:OnEnable()
-	self:RegisterEvent("VISOR_UPDATE")
-	self:RegisterChatCommand({ "/vzg", "/Visor2GUI" }, {
-		type = 'group', args = {
-			toggle = {
-				type = 'execute', name = L["Toggle GUI Frame"], desc = L["Toggle GUI Frame"],
-				func = function()
-					if Visor2GUIFrame:IsShown() then Visor2GUIFrame:Hide()
-					else Visor2GUIFrame:Show() end
-				end,
-			},
-		},
-	})
-end
-
-
 function Visor2GUI:VISOR_UPDATE(p)
 	if not Visor2GUIFrame:IsShown() then return end
 	if not p.f then return end
 
 	self.f = p.f
-	self.parent = _G[self.f]:GetParent():GetName() or nil
+	self.parent = _G[self.f]:GetParent() and _G[self.f]:GetParent():GetName() or nil
 
 	if self.parent then Visor2GUIGrabParent:Enable()
 	else Visor2GUIGrabParent:Disable() end
@@ -80,11 +64,8 @@ function Visor2GUI:ShowTooltip(txt)
 end
 
 function Visor2GUI:Toggle()
-	if Visor2GUIFrame:IsShown() then
-		Visor2GUIFrame:Hide()
-	else
-		Visor2GUIFrame:Show()
-	end
+	if Visor2GUIFrame:IsShown() then Visor2GUIFrame:Hide()
+	else Visor2GUIFrame:Show() end
 end
 
 
@@ -93,44 +74,46 @@ function Visor2GUI:EditBoxUpdate()
 end
 
 function Visor2GUI:EditWUpdate()
-	local n = Visor2GUIEditW:GetText()
+	local n = tonumber(Visor2GUIEditW:GetText())
 
+	if not n then return end
 	if self.f then Visor2:Do("wh="..n) end
 end
 
 function Visor2GUI:ButtonWUp()
-	local n = Visor2GUIEditW:GetText() + 1
+	local n = tonumber(Visor2GUIEditW:GetText()) or 0 + 1
 
 	if self.f then Visor2:Do("wh="..n) end
 end
 
 function Visor2GUI:ButtonWDown()
-	local n = Visor2GUIEditW:GetText() - 1
+	local n = tonumber(Visor2GUIEditW:GetText()) or 0 - 1
 
 	if self.f then Visor2:Do("wh="..n) end
 end
 
 
 function Visor2GUI:EditHUpdate()
-	local n = Visor2GUIEditH:GetText()
+	local n = tonumber(Visor2GUIEditH:GetText())
 
+	if not n then return end
 	if self.f then Visor2:Do("ht="..n) end
 end
 
 function Visor2GUI:ButtonHUp()
-	local n = Visor2GUIEditH:GetText() + 1
+	local n = tonumber(Visor2GUIEditH:GetText()) or 0 + 1
 
 	if self.f then Visor2:Do("ht="..n) end
 end
 
 function Visor2GUI:ButtonHDown()
-	local n = Visor2GUIEditH:GetText() - 1
+	local n = tonumber(Visor2GUIEditH:GetText()) or 0 - 1
 
 	if self.f then Visor2:Do("ht="..n) end
 end
 
 
-function Visor2GUI:ScaleUpdate()
+function Visor2GUI:ScaleUpdate(this)
 	local s = round(this:GetValue(), 2)
 
 	if self.f then
@@ -139,7 +122,7 @@ function Visor2GUI:ScaleUpdate()
 	end
 end
 
-function Visor2GUI:AlphaUpdate()
+function Visor2GUI:AlphaUpdate(this)
 	local a = round(this:GetValue(), 2)
 
 	if self.f then
@@ -180,11 +163,23 @@ function Visor2GUI:EditYUpdate()
 end
 
 
-function Visor2GUI:NudgeUpdate()
+function Visor2GUI:NudgeUpdate(this)
 	local n = this:GetValue()
 
 	if self.f then
 		Visor2:Do("n="..n)
 		Visor2GUINudgeText:SetText(L["Nudge Amount"]..": "..n)
 	end
+end
+
+
+function Visor2GUI:OnEnable()
+	self:RegisterEvent("VISOR_UPDATE")
+	self:RegisterChatCommand({ "/vzg", "/Visor2GUI" }, {
+		type = 'group', args = {
+			toggle = {
+				type = 'execute', name = L["Toggle GUI Frame"], desc = L["Toggle GUI Frame"], func = "Toggle",
+			},
+		},
+	})
 end
