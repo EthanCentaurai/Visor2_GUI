@@ -7,7 +7,7 @@
 ## LoadManagers: AddonLoader
 ## X-LoadOn-Slash: /vzg, /Visor2GUI
 
-Locale-enUS.lua
+enUS.lua
 
-Core.lua
 Frame.lua
+Core.lua
