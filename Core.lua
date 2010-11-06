@@ -69,45 +69,66 @@ function Visor2GUI:Toggle()
 end
 
 
-function Visor2GUI:EditBoxUpdate()
-	Visor2:SetupFrame("f="..this:GetText())
+function Visor2GUI:EditBoxUpdate(this)
+	local frame = this:GetText()
+
+	if frame == "" then return end
+
+	Visor2:SetupFrame("f="..frame)
 end
 
+
 function Visor2GUI:EditWUpdate()
-	local n = tonumber(Visor2GUIEditW:GetText())
+	local n = Visor2GUIEditW:GetText()
 
 	if not n then return end
 	if self.f then Visor2:Do("wh="..n) end
 end
 
 function Visor2GUI:ButtonWUp()
-	local n = tonumber(Visor2GUIEditW:GetText()) or 0 + 1
+	local n = Visor2GUIEditW:GetText()
+
+	if n == "" then return end
+
+	n = n + 1
 
 	if self.f then Visor2:Do("wh="..n) end
 end
 
 function Visor2GUI:ButtonWDown()
-	local n = tonumber(Visor2GUIEditW:GetText()) or 0 - 1
+	local n = Visor2GUIEditW:GetText()
+
+	if n == "" then return end
+
+	n = n - 1
 
 	if self.f then Visor2:Do("wh="..n) end
 end
 
 
 function Visor2GUI:EditHUpdate()
-	local n = tonumber(Visor2GUIEditH:GetText())
+	local n = Visor2GUIEditH:GetText()
 
 	if not n then return end
 	if self.f then Visor2:Do("ht="..n) end
 end
 
 function Visor2GUI:ButtonHUp()
-	local n = tonumber(Visor2GUIEditH:GetText()) or 0 + 1
+	local n = Visor2GUIEditH:GetText()
+
+	if n == "" then return end
+
+	n = n + 1
 
 	if self.f then Visor2:Do("ht="..n) end
 end
 
 function Visor2GUI:ButtonHDown()
-	local n = tonumber(Visor2GUIEditH:GetText()) or 0 - 1
+	local n = Visor2GUIEditH:GetText()
+
+	if n == "" then return end
+
+	n = n - 1
 
 	if self.f then Visor2:Do("ht="..n) end
 end
